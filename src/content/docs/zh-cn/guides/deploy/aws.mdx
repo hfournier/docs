@@ -173,7 +173,7 @@ CloudFront 是一个提供内容分发网络 (CDN) 功能的 Web 服务。它用
       // 检查 URI 是否缺少文件名。
       if (uri.endsWith('/')) {
         request.uri += 'index.html';
-      } 
+      }
       // 检查 URI 是否缺少文件扩展名。
       else if (!uri.includes('.')) {
         request.uri += '/index.html';
@@ -259,7 +259,7 @@ CloudFront 是一个提供内容分发网络 (CDN) 功能的 Web 服务。它用
         runs-on: ubuntu-latest
         steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: Configure AWS Credentials
             uses: aws-actions/configure-aws-credentials@v1
             with:
@@ -279,4 +279,4 @@ CloudFront 是一个提供内容分发网络 (CDN) 功能的 Web 服务。它用
     :::note
     `BUCKET_ID` 是你的 S3 存储桶的名称。`DISTRIBUTION_ID` 是你的 CloudFront 分发 ID。你可以在 **CloudFront > Distributions > ID** 中找到你的 CloudFront 分发 ID。
     :::
-    
+

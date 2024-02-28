@@ -9,7 +9,7 @@ i18nReady: true
 
 Für die Bereitstellung deines Projekts bei AWS musst du die [AWS-Konsole](https://aws.amazon.com/console/) verwenden. (Die meisten dieser Aktionen können auch mit der [AWS CLI](https://aws.amazon.com/cli/) durchgeführt werden). Diese Anleitung führt dich durch die Schritte zur Bereitstellung deiner Website bei AWS und beginnt mit der einfachsten Methode. Anschließend wird gezeigt, wie du zusätzliche Services hinzufügen kannst, um die Kosteneffizienz und Leistung zu verbessern.
 
-## AWS Amplify 
+## AWS Amplify
 
 AWS Amplify ist eine Reihe von speziell entwickelten Tools und Funktionen, mit denen Frontend-Web- und Mobilentwickler schnell und einfach Full-Stack-Anwendungen auf AWS erstellen können.
 
@@ -127,7 +127,7 @@ Wir werden CloudFront nutzen, um unseren S3-Bucket zu verlinken und die Dateien 
 
 1. Erstelle eine CloudFront-Veröffentlichung mit den folgenden Werten:
     * **Origin domain:** Dein S3-Bucket
-    * **S3 bucket access:** "Ja, OAI verwenden (Bucket kann den Zugriff nur auf CloudFront beschränken)" 
+    * **S3 bucket access:** "Ja, OAI verwenden (Bucket kann den Zugriff nur auf CloudFront beschränken)"
     * **Origin access identity:** Eine neue Identität für den Ursprungszugang erstellen
     * **Viewer - Bucket policy:** "Nein, ich werde die Eimerpolitik aktualisieren"
     * **Viewer protocol policy:** "Zu HTTPS umleiten"
@@ -149,7 +149,7 @@ Leider unterstützt CloudFront standardmäßig kein mehrseitiges `Sub-folder/Ind
       // Prüfe, ob in der URI ein Dateiname fehlt.
       if (uri.endsWith('/')) {
         request.uri += 'index.html';
-      } 
+      }
       // Prüfe, ob der URI eine Dateierweiterung fehlt.
       else if (!uri.includes('.')) {
         request.uri += '/index.html';
@@ -211,7 +211,7 @@ Es gibt viele Möglichkeiten, die kontinuierliche Bereitstellung für AWS einzur
         runs-on: ubuntu-latest
         steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: Configure AWS Credentials
             uses: aws-actions/configure-aws-credentials@v1
             with:

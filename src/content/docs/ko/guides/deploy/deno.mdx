@@ -67,9 +67,9 @@ npx astro add deno
       }
     }
     ```
-    
+
     이제 이 명령을 사용하여 Deno를 통해 로컬에서 프로덕션 Astro 사이트를 미리 볼 수 있습니다.
-    
+
     ```bash
     npm run preview
     ```
@@ -104,12 +104,12 @@ GitHub Actions 또는 Deno Deploy의 CLI (명령줄 인터페이스)를 사용�
 
         steps:
           - name: Clone repository
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
 
           # npm을 사용하지 않나요? `npm ci`를 `yarn install` 또는 `pnpm i`로 변경하세요.
           - name: Install dependencies
             run: npm ci
-    
+
           # npm을 사용하지 않나요? `npm run build`를 `yarn build` 또는 `pnpm run build`로 변경하세요.
           - name: Build Astro
             run: npm run build
@@ -147,7 +147,7 @@ GitHub Actions 또는 Deno Deploy의 CLI (명령줄 인터페이스)를 사용�
     ```bash
     DENO_DEPLOY_TOKEN=<ACCESS-TOKEN> deployctl deploy --project=<MY-DENO-PROJECT> --no-static --include=./dist ./dist/server/entry.mjs
     ```
-    
+
     [Deno Deploy](https://dash.deno.com)에서 모든 배포를 추적할 수 있습니다.
 
 1. (선택 사항) 빌드를 단순화하고 하나의 명령으로 배포하려면 `package.json` 파일에 `deploy-deno` 스크립트를 추가하세요.
@@ -165,9 +165,9 @@ GitHub Actions 또는 Deno Deploy의 CLI (명령줄 인터페이스)를 사용�
       }
     }
     ```
-    
+
     그런 다음 이 명령을 사용하여 Astro 사이트를 한 단계로 빌드하고 배포할 수 있습니다.
-    
+
     ```bash
     DENO_DEPLOY_TOKEN=<ACCESS-TOKEN> npm run deno-deploy
     ```

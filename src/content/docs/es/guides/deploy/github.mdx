@@ -93,7 +93,7 @@ export default defineConfig({
         branches: [ main ]
       # Te permite ejecutar este flujo de trabajo manualmente desde la pestaña Acciones en GitHub.
       workflow_dispatch:
-      
+
     # Permite que este trabajo clone el repositorio y cree un despliegue de página
     permissions:
       contents: read
@@ -105,7 +105,7 @@ export default defineConfig({
         runs-on: ubuntu-latest
         steps:
           - name: Checkout your repository using git
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: Install, build, and upload your site
             uses: withastro/action@v1
             # con:
@@ -128,7 +128,7 @@ export default defineConfig({
     :::note
     La acción de astro toma algunas entradas opcionales. Estas pueden ser proporcionadas descomentando la línea `with:` y la entrada que quieres usar.
     :::
-    
+
     :::caution
     La [acción](https://github.com/withastro/action) oficial de Astro escanea el lockfile para detectar tu gestor de paquetes preferido (`npm`, `yarn`, `pnpm`, o `bun`). Debes incluir el archivo `package-lock.json`, `yarn.lock`, `pnpm-lock.yaml` o `bun.lockb` en tu repositorio.
     :::
@@ -139,6 +139,6 @@ export default defineConfig({
 
 4. Haz commit del nuevo archivo de flujo de trabajo y haz push a GitHub.
 
-  
+
 ¡Tu sitio debería estar publicado ahora! Cuando hagas push a los cambios en el repositorio de tu proyecto de Astro, la acción de GitHub los desplegará automáticamente por ti.
 

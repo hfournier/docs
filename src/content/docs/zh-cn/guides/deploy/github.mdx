@@ -33,7 +33,7 @@ export default defineConfig({
 
 - 基于你的用户名的以下网址：`https://<username>.github.io`
 - 为 [GitHub 组织的私有页面](https://docs.github.com/en/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site) 自动生成的随机网址：`https://<random-string>.pages.github.io/`
-    
+
 #### `base`
 
 可能需要为 `base` 设置一个值，以便 Astro 将你的仓库名称（例如 `/my-repo`）视为你网站的根目录。
@@ -93,7 +93,7 @@ export default defineConfig({
         branches: [ main ]
       # 允许你在 GitHub 上的 Actions 标签中手动触发此“工作流程”
       workflow_dispatch:
-      
+
     # 允许 job 克隆 repo 并创建一个 page deployment
     permissions:
       contents: read
@@ -105,7 +105,7 @@ export default defineConfig({
         runs-on: ubuntu-latest
         steps:
           - name: Checkout your repository using git
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: Install, build, and upload your site
             uses: withastro/action@v1
             # with:
@@ -124,7 +124,7 @@ export default defineConfig({
             id: deployment
             uses: actions/deploy-pages@v1
     ```
-    
+
     :::note
     Astro GitHub Action 接受几个可选的设置项。你可以通过取消注释 `with:` 行和你想要使用的设置值来提供这些设置项。
     :::

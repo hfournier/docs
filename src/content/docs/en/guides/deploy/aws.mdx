@@ -9,9 +9,9 @@ i18nReady: true
 
 Deploying your project to AWS requires using the [AWS console](https://aws.amazon.com/console/). (Most of these actions can also be done using the [AWS CLI](https://aws.amazon.com/cli/)). This guide will walk you through the steps to deploy your site to AWS starting with the most basic method. Then, it will demonstrate adding additional services to improve cost efficiency and performance.
 
-## AWS Amplify 
+## AWS Amplify
 
-AWS Amplify is a set of purpose-built tools and features that lets frontend web and mobile developers quickly and easily build full-stack applications on AWS. 
+AWS Amplify is a set of purpose-built tools and features that lets frontend web and mobile developers quickly and easily build full-stack applications on AWS.
 
 1. Create a new Amplify Hosting project.
 2. Connect your repository to Amplify.
@@ -126,7 +126,7 @@ We will use CloudFront to wrap our S3 bucket to serve our project's files using 
     aws s3 cp dist/ s3://<BUCKET_NAME>/ --recursive
     ```
 
-3. Update your bucket policy to allow **CloudFront Access**. You can find this setting in the bucket's **Permissions > Bucket policy**. 
+3. Update your bucket policy to allow **CloudFront Access**. You can find this setting in the bucket's **Permissions > Bucket policy**.
 
     ```json
     {
@@ -172,7 +172,7 @@ Unfortunately, CloudFront does not support multi-page `sub-folder/index` routing
       // Check whether the URI is missing a file name.
       if (uri.endsWith('/')) {
         request.uri += 'index.html';
-      } 
+      }
       // Check whether the URI is missing a file extension.
       else if (!uri.includes('.')) {
         request.uri += '/index.html';
@@ -257,7 +257,7 @@ There are many ways to set up continuous deployment for AWS. One possibility for
         runs-on: ubuntu-latest
         steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: Configure AWS Credentials
             uses: aws-actions/configure-aws-credentials@v1
             with:

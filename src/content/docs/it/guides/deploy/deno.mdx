@@ -1,5 +1,5 @@
 ---
-title: Esegui il Deploy del tuo sito su Deno Deploy 
+title: Esegui il Deploy del tuo sito su Deno Deploy
 description: Come fare il deploy del tuo sito in Astro sul web usando deno.
 type: deploy
 i18nReady: true
@@ -15,11 +15,11 @@ Questa guida include istruzioni per fare il deploy attraverso Deno Deploy utiliz
 
 Avere [Deno](https://deno.com/) installato sul tuo sistema.
 
-## Configurazione Del Progetto 
+## Configurazione Del Progetto
 
 Puoi fare il deploy del tuo sito Astro su [Deno Deploy](https://deno.com/deploy) utilizzando il server-side-rendering (SSR). Ricorda che Deno Deploy non supporta i siti statici.
 
-### Adapter per il SSR 
+### Adapter per il SSR
 
 Per abilitare il server-side-rendering nel tuo progetto astro e eseguire il deploy su Deno Deploy:
 
@@ -65,9 +65,9 @@ Se vuoi installare l'adapter manualmente segui i seguienti passaggi:
       }
     }
     ```
-    
+
     Ora puoi usare questo comando per vedere l'anteprima del tuo sito con Deno.
-    
+
     ```bash
     npm run preview
     ```
@@ -85,7 +85,7 @@ Se il tuo progetto si trova su GitHub, il sito di [Deno Deploy](https://dash.den
 1. Esegui il login su [Deno Deploy](https://dash.deno.com/) con il tuo account GitHub, e clicca [New Project](https://dash.deno.com).
 
 1. Seleziona la tua repository, e il branch di cui vuoi fare il deploy, e seleziona **GitHub Action**. (Il tuo sito Astro richiede degli setup di build custom, non puoi usare quelli automatici)
-   
+
 1. Nel tuo progetto Astro, crea un nuovo file `.github/workflows/deploy.yml` e incollaci il codice YAMl sottostante. È molto simile a il codice YAML che ti dara Deno Deploy, ma con alcuni step aggiuntivi.
 
     ```yaml
@@ -102,12 +102,12 @@ Se il tuo progetto si trova su GitHub, il sito di [Deno Deploy](https://dash.den
 
         steps:
           - name: Clone repository
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
 
           # No usi npm? Cambia `npm ci` con `yarn install` o `pnpm i`
           - name: Install dependencies
             run: npm ci
-    
+
           # No usi npm? Cambia `npm run build` con `yarn build` o `pnpm run build`
           - name: Build Astro
             run: npm run build
@@ -146,7 +146,7 @@ Se il tuo progetto si trova su GitHub, il sito di [Deno Deploy](https://dash.den
     ```bash
     DENO_DEPLOY_TOKEN=<ACCESS-TOKEN> deployctl deploy --project=<MY-DENO-PROJECT> --no-static --include=./dist ./dist/server/entry.mjs
     ```
-    
+
     Puoi vedere tutti i tuoi deploy su [Deno Deploy](https://dash.deno.com).
 
 1. (Optional) Per semplificare questo processo per eseguire il deploy, aggiungi uno script `deploy-deno` nel tuo `package.json`.
@@ -164,9 +164,9 @@ Se il tuo progetto si trova su GitHub, il sito di [Deno Deploy](https://dash.den
       }
     }
     ```
-    
+
     Da ora in poi potrai usare questo comando per fare il deploy del tuo sito.
-    
+
     ```bash
     DENO_DEPLOY_TOKEN=<ACCESS-TOKEN> npm run deno-deploy
     ```

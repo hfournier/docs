@@ -174,7 +174,7 @@ Desafortunadamente, CloudFront no es compatible con enrutamiento de "subcarpetas
       // Comprueba si al URI le falta el nombre del archivo.
       if (uri.endsWith('/')) {
         request.uri += 'index.html';
-      } 
+      }
       // Compruebe si al URI le falta una extensión de archivo.
       else if (!uri.includes('.')) {
         request.uri += '/index.html';
@@ -260,7 +260,7 @@ Hay muchas formas de configurar despliegue continuo en AWS. Una posibilidad si e
         runs-on: ubuntu-latest
         steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: Configure AWS Credentials
             uses: aws-actions/configure-aws-credentials@v1
             with:

@@ -1,5 +1,5 @@
 ---
-title: Veröffentliche deine Astro-Seite auf Deno 
+title: Veröffentliche deine Astro-Seite auf Deno
 description: Wie du deine Astro-Webseite mit Deno ins Internet stellst.
 type: deploy
 i18nReady: true
@@ -63,9 +63,9 @@ Wenn du den Adapter stattdessen lieber manuell installieren möchtest, führe di
       }
     }
     ```
-    
+
     Du kannst jetzt diesen Befehl verwenden, um deine Astro-Produktionsseite lokal mit Deno zu überprüfen.
-    
+
     ```bash
     npm run preview
     ```
@@ -83,7 +83,7 @@ Wenn dein Projekt auf GitHub gespeichert ist, führt dich die [Deno Deploy-Webse
 1. Melde dich auf [Deno Deploy](https://dash.deno.com/) mit deinem GitHub-Konto an und klicke auf [Neues Projekt](https://dash.deno.com).
 
 1. Wähle dein Repository und den Branch aus, den du bereitstellen möchtest, und wähle den Modus **GitHub Action**. (Deine Astro-Seite benötigt einen Build-Schritt und kann den automatischen Modus nicht verwenden)
-   
+
 1. Erstelle in deinem Astro-Projekt eine neue Datei unter `.github/workflows/deploy.yml` und füge die unten stehende YAML ein. Diese Datei ähnelt der YAML-Datei von Deno Deploy, mit den zusätzlichen Schritten, die du für deine Astro-Seite benötigst.
 
     ```yaml
@@ -100,12 +100,12 @@ Wenn dein Projekt auf GitHub gespeichert ist, führt dich die [Deno Deploy-Webse
 
         steps:
           - name: Clone repository
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
 
           # Du benutzt kein npm? Ändere `npm ci` in `yarn install` oder `pnpm i`
           - name: Install dependencies
             run: npm ci
-    
+
           # Du benutzt kein npm? Ändere `npm run build` in `yarn build` oder `pnpm run build`
           - name: Build Astro
             run: npm run build
@@ -144,7 +144,7 @@ Wenn dein Projekt auf GitHub gespeichert ist, führt dich die [Deno Deploy-Webse
     ```bash
     DENO_DEPLOY_TOKEN=<ACCESS-TOKEN> deployctl deploy --project=<MY-DENO-PROJECT> --no-static --include=./dist ./dist/server/entry.mjs
     ```
-    
+
     Du kannst alle deine Einsätze auf [Deno Deploy](https://dash.deno.com) verfolgen.
 
 1. (Optional) Um den Build und das Deployment in einem Befehl zu vereinfachen, füge ein `deploy-deno` Skript in die `package.json` ein.
@@ -162,9 +162,9 @@ Wenn dein Projekt auf GitHub gespeichert ist, führt dich die [Deno Deploy-Webse
       }
     }
     ```
-    
+
     Dann kannst du diesen Befehl verwenden, um deine Astro-Seite in einem Schritt zu erstellen und einzusetzen.
-    
+
     ```bash
     DENO_DEPLOY_TOKEN=<ACCESS-TOKEN> npm run deno-deploy
     ```

@@ -68,7 +68,7 @@ Vous pouvez mettre en place un domaine personnalisé en ajoutant le fichier `./p
 sub.mydomain.com
 ```
 
-Ceci déploiera votre site sur votre domaine personnalisé au lieu de `user.github.io`. N'oubliez pas de [configurer les DNS pour votre fournisseur de domaine](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain).   
+Ceci déploiera votre site sur votre domaine personnalisé au lieu de `user.github.io`. N'oubliez pas de [configurer les DNS pour votre fournisseur de domaine](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain).
 :::
 
 Pour configurer Astro afin d'utiliser les pages GitHub avec un domaine personnalisé, définissez votre domaine comme valeur pour `site`. Ne définissez pas de valeur pour `base` :
@@ -95,7 +95,7 @@ export default defineConfig({
         branches: [ main ]
       # Vous permet d'exécuter ce workflow manuellement à partir de l'onglet Actions sur GitHub.
       workflow_dispatch:
-      
+
     # Autoriser cette tâche à cloner le dépôt et à créer un déploiement de page
     permissions:
       contents: read
@@ -107,7 +107,7 @@ export default defineConfig({
         runs-on: ubuntu-latest
         steps:
           - name: Checkout your repository using git
-            uses: actions/checkout@v2          
+            uses: actions/checkout@v4
           - name: Install, build, and upload your site
             uses: withastro/action@v0
             with:
@@ -135,11 +135,11 @@ export default defineConfig({
    La [GitHub Action](https://github.com/withastro/action) officielle Astro recherche un lockfile pour détecter votre gestionnaire de paquets préféré (`npm`, `yarn`, `pnpm`, ou `bun`). Vous devez commit le fichier `package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`, ou `bun.lockb` généré automatiquement par votre gestionnaire de paquets dans votre référentiel.
     :::
 
-2. Sur GitHub, allez dans l'onglet **Settings** (Paramètres) de votre dépôt et trouvez la section **Pages** des paramètres.  
+2. Sur GitHub, allez dans l'onglet **Settings** (Paramètres) de votre dépôt et trouvez la section **Pages** des paramètres.
 
 3. Choisissez **GitHub Actions** comme **Source** de votre site.
 
-4. Validez (Commit) le nouveau fichier Workflow (flux de travail) et poussez-le (Push) sur GitHub. 
+4. Validez (Commit) le nouveau fichier Workflow (flux de travail) et poussez-le (Push) sur GitHub.
 
 
 Votre site devrait maintenant être publié ! Lorsque vous apportez des modifications au dépôt de votre projet Astro, l'action GitHub les déploie automatiquement pour vous.

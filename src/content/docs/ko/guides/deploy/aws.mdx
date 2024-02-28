@@ -172,7 +172,7 @@ CloudFront를 사용하여 S3 버킷을 래핑하고 Amazon 글로벌 CDN 네트
       // URI에 파일 이름이 누락되었는지 확인하세요.
       if (uri.endsWith('/')) {
         request.uri += 'index.html';
-      } 
+      }
       // URI에 파일 확장자가 누락되었는지 확인하세요.
       else if (!uri.includes('.')) {
         request.uri += '/index.html';
@@ -257,7 +257,7 @@ AWS에 대한 지속적 배포를 설정하는 방법에는 여러 가지가 있
         runs-on: ubuntu-latest
         steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: Configure AWS Credentials
             uses: aws-actions/configure-aws-credentials@v1
             with:

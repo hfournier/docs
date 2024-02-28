@@ -66,9 +66,9 @@ If you prefer to install the adapter manually instead, complete the following tw
       }
     }
     ```
-    
+
     You can now use this command to preview your production Astro site locally with Deno.
-    
+
     ```bash
     npm run preview
     ```
@@ -86,7 +86,7 @@ If your project is stored on GitHub, the [Deno Deploy website](https://dash.deno
 1. Sign in on [Deno Deploy](https://dash.deno.com/) with your GitHub account, and click on [New Project](https://dash.deno.com).
 
 1. Select your repository, the branch you want to deploy from, and select **GitHub Action** mode. (Your Astro site requires a build step, and cannot use Automatic mode.)
-   
+
 1. In your Astro project, create a new file at `.github/workflows/deploy.yml` and paste in the YAML below. This is similar to the YAML given by Deno Deploy, with the additional steps needed for your Astro site.
 
     ```yaml
@@ -103,12 +103,12 @@ If your project is stored on GitHub, the [Deno Deploy website](https://dash.deno
 
         steps:
           - name: Clone repository
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
 
           # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
           - name: Install dependencies
             run: npm ci
-    
+
           # Not using npm? Change `npm run build` to `yarn build` or `pnpm run build`
           - name: Build Astro
             run: npm run build
@@ -147,7 +147,7 @@ If your project is stored on GitHub, the [Deno Deploy website](https://dash.deno
     ```bash
     DENO_DEPLOY_TOKEN=<ACCESS-TOKEN> deployctl deploy --project=<MY-DENO-PROJECT> --no-static --include=./dist ./dist/server/entry.mjs
     ```
-    
+
     You can track all your deploys on [Deno Deploy](https://dash.deno.com).
 
 1. (Optional) To simplify the build and deploy into one command, add a `deploy-deno` script in `package.json`.
@@ -165,9 +165,9 @@ If your project is stored on GitHub, the [Deno Deploy website](https://dash.deno
       }
     }
     ```
-    
+
     Then you can use this command to build and deploy your Astro site in one step.
-    
+
     ```bash
     DENO_DEPLOY_TOKEN=<ACCESS-TOKEN> npm run deno-deploy
     ```

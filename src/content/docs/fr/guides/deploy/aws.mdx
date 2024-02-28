@@ -172,7 +172,7 @@ Malheureusement, CloudFront ne supporte pas le routage multi-pages `sous-dossier
    // Vérifie s'il manque un nom de fichier à l'URI.
    if (uri.endsWith('/')) {
      request.uri += 'index.html';
-   } 
+   }
    // Vérifie s'il manque une extension de fichier à l'URI.
    else if (!uri.includes('.')) {
      request.uri += '/index.html';
@@ -257,7 +257,7 @@ N'oubliez pas de remplacer `<DISTRIBUTION_ARN>` et `<BUCKET_NAME>`. Vous pouvez 
      runs-on: ubuntu-latest
      steps:
        - name: Checkout
-         uses: actions/checkout@v3
+         uses: actions/checkout@v4
        - name: Configure AWS Credentials
          uses: aws-actions/configure-aws-credentials@v1
          with:
